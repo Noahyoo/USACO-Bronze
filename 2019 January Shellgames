@@ -1,0 +1,32 @@
+import java.util.*;
+
+public class Shellgame {
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        int N = scan.nextInt();
+        int[][] arr = new int[N][3];
+        for(int i = 0; i < N; i++){
+            for(int j = 0; j < 3; j++){
+                arr[i][j] = scan.nextInt();
+            }
+        }
+        int guesses = 0;
+        int max = 0;
+        for(int i = 1; i < 4; i++){
+            int[] swaps = {1, 2, 3};
+            for(int j = 0; j < N; j++){
+                int temp = swaps[arr[j][1]-1];
+                swaps[arr[j][1]-1] = swaps[arr[j][0]-1];
+                swaps[arr[j][0]-1] = temp;
+                if(swaps[arr[j][2]-1] == i) {
+                    guesses += 1;
+                }
+            }
+            if(guesses > max){
+                max = guesses;
+            }
+            guesses = 0;
+        }
+        System.out.println(max);
+    }
+}
