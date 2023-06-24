@@ -1,0 +1,25 @@
+import java.util.*;
+public class cow {
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        int N = scan.nextInt();
+        String dummy = scan.nextLine();
+        String A = scan.nextLine();
+
+        int count = 0;
+        int Ocount = 0;
+        int ans = 0;
+        for(int i = 0; i < N; i++) {
+            if (A.charAt(i)=='C') {
+                count += 1;
+            }
+            else if(A.charAt(i) == 'O'){
+                Ocount += count;
+            }
+            else if(A.charAt(i) == 'W'){
+                ans += Ocount;
+            }
+        }
+        System.out.println(ans);
+    }
+}
