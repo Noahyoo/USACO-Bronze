@@ -1,0 +1,46 @@
+import java.util.*;
+
+public class CowGymnastics {
+    public static boolean position(int pos1,int pos2,int[][] session,int row,int columns){
+        int greater = 0;
+        int less = 0;
+        for(int i = 0; i < columns; i++){
+            if(session[row][i] == pos1){
+                greater = i;
+            }
+            if(session[row][i] == pos2){
+                less = i;
+            }
+        }
+        return greater < less;
+    }
+    public static int times(int pos1, int pos2, int[][] session,int row,int columns){
+        int amount = 0;
+        for(int i = 0; i < row; i++){
+            if(position(pos1,pos2,session,i,columns) == true){
+                amount += 1;
+            }
+        }
+        return amount;
+    }
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        int K = scan.nextInt();
+        int N = scan.nextInt();
+        int[][] sessions = new int[K][N];
+        for(int i = 0; i < K; i++){
+            for(int j = 0; j < N; j++){
+                sessions[i][j] = scan.nextInt();
+            }
+        }
+        int counter = 0;
+        for(int i = 1; i <= N; i++){
+            for(int j = 1; j <= N; j++){
+                if(times(i,j,sessions,K,N) == K){
+                    counter += 1;
+                }
+            }
+        }
+        System.out.println(counter);
+    }
+}
