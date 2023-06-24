@@ -1,0 +1,46 @@
+import java.util.*;
+
+public class BovineGenomicss {
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        int N = scan.nextInt();
+        int M = scan.nextInt();
+        char[][] spotty = new char[N][M];
+        char[][] plain = new char[N][M];
+        String dummy = scan.nextLine();
+        for(int i = 0; i < N; i++){
+            dummy = scan.nextLine();
+            for(int j = 0; j < M; j++){
+                spotty[i][j] = dummy.charAt(j);
+            }
+        }
+        for(int i = 0; i < N; i++){
+            dummy = scan.nextLine();
+            for(int j = 0; j < M; j++){
+                plain[i][j] = dummy.charAt(j);
+            }
+        }
+
+        int counter = 0; // checks whether one spotty cow is not equal to any plain cows
+        int counter1 = 0; // checks whether all spotty cows are not equal to any plain cows
+        int ans = 0;
+        for(int i = 0; i < M; i++){
+            for(int j = 0; j < N; j++){
+                for(int s = 0; s < N; s++){
+                    if(spotty[j][i] != plain[s][i]){
+                        counter++;
+                    }
+                }
+                if(counter == N){
+                    counter1++;
+                }
+                counter = 0;
+            }
+            if(counter1 == N){
+                ans++;
+            }
+            counter1 = 0;
+        }
+        System.out.println(ans);
+    }
+}
