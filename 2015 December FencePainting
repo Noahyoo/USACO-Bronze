@@ -1,0 +1,30 @@
+import java.util.*;
+
+public class main {
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        int a = scan.nextInt();
+        int b = scan.nextInt();
+        int c = scan.nextInt();
+        int d = scan.nextInt();
+        int answer = 0;
+        int min = 0;
+
+        if(c > a && c < b && b < d){
+            answer = d - a;
+        }
+        else if(c < a && a < d && d < b){
+            answer = b - c;
+        }
+        else if(c < a && b < d){
+            answer = d - c;
+        }
+        else if(a < c && d < b){
+            answer = b - a;
+        }
+        else{
+            answer = (b - a) + (d - c);
+        }
+        System.out.println(answer);
+    }
+}
