@@ -1,0 +1,49 @@
+import java.util.*;
+
+public class BlockGame {
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        int N = scan.nextInt();
+        int[] alphabet = new int[26]; // answer
+        int[] temp = new int[26]; // for each word
+        int[] temp2 = new int[26]; // for word 2
+
+        for(int i = 0; i < N; i++){
+            String word1 = scan.next();
+            String word2 = scan.next();
+            for(int t = 0; t < 26; t++){
+                temp[t] = 0;
+                temp2[t] = 0;
+            }
+            for(int w1 = 0; w1 < word1.length(); w1++){
+                char letter = word1.charAt(w1);
+                int pos = letter;
+                temp[pos-97] += 1;
+            }
+            for(int w2 = 0; w2 < word2.length(); w2++){
+                char letter2 = word2.charAt(w2);
+                int pos2 = letter2;
+                temp2[pos2-97] += 1;
+            }
+            for(int l = 0; l < 26; l++){
+                if(temp[l] > temp2[l]){
+                    alphabet[l] += temp[l];
+                }
+                else if(temp2[l] > temp[l]){
+                    alphabet[l] += temp2[l];
+                }
+                else if(temp[l] == temp2[l]){
+                    alphabet[l] += temp[l];
+                }
+                else{
+                    alphabet[l] += temp[l];
+                    alphabet[l] += temp2[l];
+                }
+            }
+        }
+
+        for(int i:alphabet){
+            System.out.println(i);
+        }
+    }
+}
