@@ -1,0 +1,42 @@
+import java.util.*;
+
+public class TheCowSignal {
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        int M = scan.nextInt();
+        int N = scan.nextInt();
+        int K = scan.nextInt();
+        char[][] signal = new char[M][N];
+        String dummy = scan.nextLine();
+        for(int i = 0; i < M; i++){
+            dummy = scan.nextLine();
+            for(int j = 0; j < N; j++){
+                signal[i][j] = dummy.charAt(j);
+            }
+        }
+
+        char[][] ans = new char[M*K][N*K];
+        int counterx = 0; // columns
+        int countery = 0; // rows
+
+        for(int i = 0; i < M; i++){
+            for(int j = 0; j < N; j++){
+                for(int s = 0; s < K; s++){
+                    ans[countery][counterx] = signal[i][j];
+                    for(int h = 0; h < K; h++){
+                        ans[countery + h][counterx] = signal[i][j];
+                    }
+                    counterx += 1;
+                }
+            }
+            counterx = 0;
+            countery += K;
+        }
+        for(int i = 0; i < M*K; i++){
+            for(int j = 0; j  < N*K; j++){
+                System.out.print(ans[i][j]);
+            }
+            System.out.println();
+        }
+    }
+}
