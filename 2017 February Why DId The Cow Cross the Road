@@ -1,0 +1,23 @@
+import java.util.*;
+
+public class WhyDidTheCowCrossTheRoad {
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        int N = scan.nextInt();
+        int counter = 0;
+        int[] ID = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
+        for(int i = 0; i < N; i++){
+            int id = scan.nextInt();
+            int cross = scan.nextInt();
+            if(ID[id-1] == -1){
+                ID[id-1] = cross;
+                continue;
+            }
+            if(cross != ID[id-1]){
+                counter += 1;
+                ID[id-1] = cross;
+            }
+        }
+        System.out.println(counter);
+    }
+}
