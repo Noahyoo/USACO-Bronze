@@ -1,0 +1,58 @@
+import java.util.*;
+
+public class Crosswords {
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        int N = scan.nextInt();
+        int M = scan.nextInt();
+        int counter = 0;
+        char[][] cw = new char[N][M];
+        String dummy = scan.nextLine();
+        for(int i = 0; i < N; i++){
+            String clear = scan.nextLine();
+            for(int j = 0; j < M; j++){
+                cw[i][j] = clear.charAt(j);
+            }
+        }
+        for(int i = 0; i < N; i++){
+            for(int j = 0; j < M; j++){
+                if(j+2 <= M-1 && j-1 < 0){
+                    if(cw[i][j] == '.' && cw[i][j+1] == '.' && cw[i][j+2] == '.'){
+                        counter += 1;
+                        cw[i][j] = '!';
+                    }
+                    if(j-1 >= 0){
+                        if(cw[i][j-1] == '#'){
+                            if(cw[i][j] == '.' && cw[i][j+1] == '.' && cw[i][j+2] == '.'){
+                                counter += 1;
+                                cw[i][j] = '!';
+                            }
+                        }
+                    }
+                }
+                if(i+2 <= N-1 && i-1 < 0){
+                    if(cw[i][j] == '.' && cw[i+1][j] == '.' && cw[i+2][j] == '.'){
+                        counter += 1;
+                        cw[i][j] = '!';
+                    }
+                    if(i - 1 >= 0){
+                        if(cw[i-1][j] == '#'){
+                            if(cw[i][j] == '.' && cw[i+1][j] == '.' && cw[i+2][j] == '.'){
+                                counter += 1;
+                                cw[i][j] = '!';
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        System.out.println(counter);
+        for(int i = 0; i < N; i++){
+            for(int j = 0; j < M; j++){
+                if(cw[i][j] == '!'){
+                    System.out.println((i+1) + " " + (j+1));
+                }
+            }
+        }
+    }
+}
