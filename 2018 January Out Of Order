@@ -1,0 +1,26 @@
+// this code is for out of place
+import java.util.*;
+
+public class Photoshoot {
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        int N = scan.nextInt();
+        int[] pos = new int[N];
+        int[] sort = new int[N];
+        int counter = 0;
+        for(int i = 0; i < N; i++){
+            pos[i] = scan.nextInt();
+            sort[i] = pos[i];
+        }
+        Arrays.sort(sort);
+        for(int i = 0; i < N; i++){
+            if(sort[i] != pos[i]){
+                counter += 1;
+            }
+        }
+        if(counter > 0){
+            counter -= 1;
+        }
+        System.out.println(counter);
+    }
+}
