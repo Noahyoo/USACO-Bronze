@@ -1,0 +1,15 @@
+import java.util.*;
+
+public class AntonandLetters {
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        HashSet<Character> letter = new HashSet<Character>();
+        String char1 = scan.nextLine();
+        for(int i = 0; i < char1.length(); i++){
+            if(char1.charAt(i) != '{' && char1.charAt(i) != '}' && char1.charAt(i) != ',' && char1.charAt(i) != ' '){
+                letter.add(char1.charAt(i));
+            }
+        }
+        System.out.println(letter.size());
+    }
+}
