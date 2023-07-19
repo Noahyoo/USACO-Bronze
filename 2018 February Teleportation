@@ -1,0 +1,21 @@
+import java.util.*;
+
+public class Teleportation {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int[] location = new int[4];
+        int a = scan.nextInt();
+        int b = scan.nextInt();
+        int x = scan.nextInt();
+        int y = scan.nextInt();
+        int counter = Integer.MAX_VALUE;
+
+
+        counter = Math.min(counter,b-a);
+        counter = Math.min(counter, Math.abs(a-x)+Math.abs(b-y));
+        counter = Math.min(counter, Math.abs(a-y) + Math.abs(b-x));
+
+         System.out.println(counter);
+
+    }
+}
