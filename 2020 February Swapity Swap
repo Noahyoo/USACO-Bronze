@@ -1,0 +1,33 @@
+import java.util.*;
+
+public class SwapitySwap {
+    private static void reverse(ArrayList<Integer> arr,int left,int right){
+        while(left < right){
+            swap(arr,left++,right--);
+        }
+    }
+
+    private static void swap(ArrayList<Integer> arr,int x,int y){
+        int temp = arr.get(x);
+        arr.set(x, arr.get(y));
+        arr.set(y, temp);
+    }
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        int N = scan.nextInt();
+        int K = scan.nextInt();
+        int A1 = scan.nextInt();
+        int A2 = scan.nextInt();
+        int B1 = scan.nextInt();
+        int B2 = scan.nextInt();
+        ArrayList<Integer> pos = new ArrayList<Integer>();
+        for(int i = 0; i < N; i++){
+            pos.add(i+1);
+        }
+        for(int i = 0; i < K; i++){
+            reverse(pos, A1-1, A2-1);
+            reverse(pos, B1-1, B2-1);
+        }
+        System.out.println(pos);
+    }
+}
