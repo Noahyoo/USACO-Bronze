@@ -1,0 +1,26 @@
+import java.util.*;
+
+public class Word {
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        String S = scan.nextLine();
+        int counter_low = 0;
+        int counter_high = 0;
+        for(int i = 0; i < S.length(); i++){
+            char letter = S.charAt(i);
+            if(Character.isUpperCase(letter)){
+                counter_high ++;
+            }
+            else if(Character.isLowerCase(letter)){
+                counter_low ++;
+            }
+        }
+
+        if(counter_low >= counter_high){
+            System.out.print(S.toLowerCase());
+        }
+        else if(counter_high > counter_low){
+            System.out.print(S.toUpperCase());
+        }
+    }
+}
