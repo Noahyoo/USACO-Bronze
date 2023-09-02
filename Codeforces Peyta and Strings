@@ -1,0 +1,29 @@
+import java.util.*;
+
+public class PetyaAndStrings {
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        String letter = scan.nextLine();
+        String letter2 =  scan.nextLine();
+        int counter = 0;
+        letter = letter.toLowerCase();
+        letter2 = letter2.toLowerCase();
+        for(int i = 0; i < letter.length(); i++){
+            char character = letter.charAt(i);
+            char character2 = letter2.charAt(i);
+
+            if(character == character2){
+                counter = 0;
+            }
+            else if(character < character2){
+                counter = -1;
+                break;
+            }
+            else if(character > character2){
+                counter = 1;
+                break;
+            }
+        }
+        System.out.println(counter);
+    }
+}
