@@ -1,0 +1,20 @@
+import java.util.*;
+
+public class Magnets {
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        int N = scan.nextInt();
+        int[] dominos = new int[N];
+        int counter = 1;
+        for(int i = 0; i < N; i++){
+            dominos[i] = scan.nextInt();
+            if (i > 0 && dominos[i] == dominos[i-1]) {
+                continue;
+            }
+            else{
+                counter++;
+            }
+        }
+        System.out.println(counter-1);
+    }
+}
