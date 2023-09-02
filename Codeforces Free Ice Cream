@@ -1,0 +1,31 @@
+import java.util.*;
+
+public class FreeIceCream {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+        int N = scan.nextInt();
+        long X = scan.nextLong();
+
+        int angry = 0;
+        long demand = 0;
+
+        for(int i = 0; i < N; i++){
+            String sign = scan.next();
+            if(sign.charAt(0) == '+'){
+                demand =  scan.nextInt();
+                X += demand;
+            }
+            else if(sign.charAt(0) == '-'){
+                demand = scan.nextInt();
+                if(X < Math.abs(demand)){
+                    angry++;
+                }
+                else{
+                    X -= demand;
+                }
+            }
+        }
+        System.out.println(X + " " + angry);
+    }
+}
