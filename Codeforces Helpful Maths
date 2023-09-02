@@ -1,0 +1,15 @@
+import java.util.*;
+
+public class HelpfulMaths {
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        int s = scan.nextInt();
+        String[] equation = new String[s];
+        for(int i = 0; i < s; i++){
+            equation[i] = scan.nextLine();
+        }
+        Arrays.sort(equation);
+
+        System.out.println(equation);
+    }
+}
