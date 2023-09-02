@@ -1,0 +1,22 @@
+import java.util.*;
+
+public class CarrotCakes {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+        int N = scan.nextInt();
+        int T = scan.nextInt();
+        int K = scan.nextInt();
+        int D = scan.nextInt();
+
+        int time1 = (N / K) * T;
+        int time2 = D + ((N / K) * T) / 2;
+
+        if(time2 < time1) {
+            System.out.println("YES");
+        }
+        else{
+            System.out.println("NO");
+        }
+    }
+}
