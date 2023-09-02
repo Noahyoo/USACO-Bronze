@@ -1,0 +1,27 @@
+import java.util.*;
+
+public class Juicer {
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        int N = scan.nextInt();
+        int B = scan.nextInt();
+        int D = scan.nextInt();
+        int[] orange = new int[N];
+        for(int i = 0; i < N; i++){
+            orange[i] = scan.nextInt();
+        }
+        int sum = 0;
+        int counter = 0;
+        for(int i = 0; i < N; i++){
+            if(orange[i] > B) {
+                continue;
+            }
+            sum += orange[i];
+            if(sum > D){
+                counter++;
+                sum = 0;
+            }
+        }
+        System.out.println(counter);
+    }
+}
