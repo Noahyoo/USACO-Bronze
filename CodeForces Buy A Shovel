@@ -1,0 +1,15 @@
+import java.util.*;
+
+public class BuyAShovel {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int K = scan.nextInt();
+        int R = scan.nextInt();
+
+        int min = 1;
+        while((K * min) % 10 != 0 && (R * min) % 10 != R) {
+            min++;
+        }
+        System.out.println(min);
+    }
+}
