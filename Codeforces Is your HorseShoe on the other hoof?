@@ -1,0 +1,13 @@
+import java.util.*;
+
+public class IsYourHorseshoeOnTheOtherHoof {
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        Set<Integer> colors = new HashSet<Integer>();
+        colors.add(scan.nextInt());
+        colors.add(scan.nextInt());
+        colors.add(scan.nextInt());
+        colors.add(scan.nextInt());
+        System.out.println(4 - colors.size());
+    }
+}
