@@ -1,0 +1,31 @@
+import java.util.*;
+
+public class CowCollege {
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        int N = scan.nextInt();
+        int[] cowmax = new int[N];
+        for(int i = 0; i < N; i++){
+            cowmax[i] = scan.nextInt();
+        }
+
+        Arrays.sort(cowmax);
+        for(int i = 0; i < N; i++){
+            int temp = cowmax[i];
+            cowmax[i] = cowmax[N - i - 1];
+            cowmax[N - i - 1] = temp;
+        }
+        long max = 0;
+        int optimal = 0;
+
+        for(int i = 0; i < N; i++){
+            long revenue = cowmax[i] * (N - i);
+
+            if(revenue > max){
+                max = revenue;
+                optimal = cowmax[i];
+            }
+        }
+        System.out.println(max + " " + optimal);
+    }
+}
